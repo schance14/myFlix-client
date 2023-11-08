@@ -4,7 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
     const [movies, setMovies] = useState([
-        {
+            {
             id: 1,
             Title: "Lord of the Rings",
             Image: "https://m.media-amazon.com/images/I/81hz68cCnQL._AC_UF1000,1000_QL80_.jpg",
@@ -18,7 +18,9 @@ export const MainView = () => {
                 Description:"Peter Jackson is a New Zealand film director, producer, actor, and screenwriter, known for his Lord of the Rings film trilogy, adapted from the novel by J. R. R. Tolkien. He is also known for his 2005 remake of King Kong and as the producer of District 9.",
                 Birth: "October 31, 1961"
             },
+        },
 
+        {
             id: 2,
             Title: "Team America: World Police",
             Image: "https://m.media-amazon.com/images/I/512Ej2EkUnL._AC_UF894,1000_QL80_.jpg",
@@ -32,7 +34,9 @@ export const MainView = () => {
                 Description:"American screenwriter, actor, and producer, best known as the cocreator, with Matt Stone, of the subversive animated comedy series South Park",
                 Birth: "October 19, 1969"
             },
+        },
 
+        {
             id: 3,
             Title: "Mean Girls",
             Image: "https://m.media-amazon.com/images/I/81Wubp+BoYL._AC_UF894,1000_QL80_.jpg",
@@ -46,9 +50,9 @@ export const MainView = () => {
                 Name:"Mark Waters",
                 Description: "Mark Stephen Waters is an American film director and producer. Waters is perhaps best known for directing Just Like Heaven, Freaky Friday, and Mean Girls, and producing 500 Days of Summer.",
                 Birth: "June 30th, 1964"
-            }
-        }
-    ]);
+            },
+    },
+]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
