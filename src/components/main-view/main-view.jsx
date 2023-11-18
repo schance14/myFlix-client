@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import PropTypes from "prop-types";
 
 export const MainView = () => {
     const [movies, setMovies] = useState([]);
@@ -31,15 +30,4 @@ export const MainView = () => {
             ))}
         </div>
     );
-};
-
-MovieCard.PropTypes = {
-    movie: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
 };
