@@ -23,10 +23,10 @@ export const MainView = () => {
               genreDescription: movie.Genre.genreDescription,
             },
             director: {
-              directorName: movie.director.directorName,
-              description: movie.director.directorDescription,
-              birth: movie.director.Birth,
-              death: movie.director.Death,
+              directorName: movie.Director.directorName,
+              description: movie.Director.directorDescription,
+              birth: movie.Director.Birth,
+              death: movie.Director.Death,
             },
           };
         });
