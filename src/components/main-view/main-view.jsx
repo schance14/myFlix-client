@@ -5,19 +5,17 @@ import { MovieView } from "../movie-view/movie-view";
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
   useEffect(() => {
     fetch("https://film-finder-82ebda24dfc3.herokuapp.com/movies")
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        const moviesFromApi = data.map((movie) => {
+      .then((movies) => {
+        console.log(movies);
+        const moviesFromApi = movies.map((movie) => {
           return {
-            id: movie.id,
-            title: movie.title,
-            image: movie.image,
-            description: movie.description,
+            id: movie._id,
+            title: movie.Title,
+            image: movie.Image,
+            description: movie.Description,
             genre: {
               genreName: movie.Genre.genreName,
               genreDescription: movie.Genre.genreDescription,
@@ -33,6 +31,8 @@ export const MainView = () => {
         setMovies(moviesFromApi);
       });
   }, []);
+
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   if (selectedMovie) {
     return (
@@ -52,7 +52,7 @@ export const MainView = () => {
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
-          movieData={movie}
+          movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
           }}

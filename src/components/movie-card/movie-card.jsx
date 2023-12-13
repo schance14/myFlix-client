@@ -1,20 +1,20 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
-export const MovieCard = ({ movieData, onMovieClick }) => {
+export const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <div
       onClick={() => {
-        onMovieClick(movieData);
+        onMovieClick(movie);
       }}
     >
-      {movieData.title}
+      {movie.title}
     </div>
   );
 };
 
 MovieCard.propTypes = {
-  movie: propTypes.shape({
-    title: propTypes.string,
+  movie: PropTypes.shape({
+    title: PropTypes.string,
   }).isRequired,
-  onMovieClick: propTypes.func.isRequired,
+  onMovieClick: PropTypes.func.isRequired,
 };
