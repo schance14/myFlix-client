@@ -16,14 +16,11 @@ export const MovieView = ({ movie, onBackClick }) => {
       </div>
       <div>
         <span>Genre: </span>
-        <span>{movie.genre.genreName}</span>
-        <span>{movie.genre.genreDescription}</span>
+        <span>{movie.genre}</span>
       </div>
       <div>
         <span>Director: </span>
-        <span>{movie.director.directorName}</span>
-        <span>{movie.director.directorDescription}</span>
-        <span>{movie.director.directorBirth}</span>
+        <span>{movie.director}</span>
       </div>
       <button onClick={onBackClick}>Back</button>
     </div>
@@ -35,13 +32,13 @@ MovieView.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.shape({
-      genreName: PropTypes.string.isRequired,
-      genreDescription: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
     }),
     description: PropTypes.string.isRequired,
     director: PropTypes.shape({
-      directorName: PropTypes.string.isRequired,
-      directorDescription: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
       birth: PropTypes.string.isRequired,
     }),
   }).isRequired,
