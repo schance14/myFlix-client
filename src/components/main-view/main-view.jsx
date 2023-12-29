@@ -37,6 +37,7 @@ export const MainView = () => {
       });
   }, [token]);
 
+  if (!user) {
     return (
       <>
         <LoginView
