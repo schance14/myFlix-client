@@ -10,7 +10,7 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password,
     };
 
-    fetch("https://openlibrary.org/account/login.json", {
+    fetch("https://film-finder-82ebda24dfc3.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
