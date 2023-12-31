@@ -1,6 +1,6 @@
 import { useState } from "react";
 export const SignupView = () => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
@@ -8,7 +8,7 @@ export const SignupView = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      Username: username,
+      Name: name,
       Password: password,
       Email: email,
       Birthday: birthday,
@@ -33,11 +33,11 @@ export const SignupView = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Username:
+        Name:
         <input
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
           minLength="3"
         />
