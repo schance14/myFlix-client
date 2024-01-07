@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 export const LoginView = ({ onLoggedIn }) => {
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
-      access: name,
+      access: email,
       secret: password,
     };
 
@@ -35,11 +35,11 @@ export const LoginView = ({ onLoggedIn }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Name:
+        Email:
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
