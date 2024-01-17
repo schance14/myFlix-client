@@ -6,8 +6,8 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: email,
-      secret: password,
+      Email: email,
+      Password: password,
     };
 
     fetch("https://film-finder-82ebda24dfc3.herokuapp.com/login", {
