@@ -6,6 +6,7 @@ import { SignupView } from "../signup-view/signup-view";
 import { token } from "morgan";
 
 export const MainView = () => {
+
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
