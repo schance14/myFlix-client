@@ -27182,10 +27182,17 @@ const MainView = ()=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
+<<<<<<< Updated upstream
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+=======
+    const [movies, setMovies] = (0, _react.useState)([]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+>>>>>>> Stashed changes
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://film-finder-82ebda24dfc3.herokuapp.com/movies", {
@@ -27218,13 +27225,21 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
                 lineNumber: 43,
+=======
+                lineNumber: 44,
+>>>>>>> Stashed changes
                 columnNumber: 9
             }, undefined),
             "or",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
                 lineNumber: 50,
+=======
+                lineNumber: 51,
+>>>>>>> Stashed changes
                 columnNumber: 9
             }, undefined)
         ]
@@ -27234,14 +27249,22 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
         lineNumber: 57,
+=======
+        lineNumber: 58,
+>>>>>>> Stashed changes
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
         lineNumber: 65,
+=======
+        lineNumber: 66,
+>>>>>>> Stashed changes
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27255,7 +27278,11 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
                 lineNumber: 70,
+=======
+                lineNumber: 71,
+>>>>>>> Stashed changes
                 columnNumber: 7
             }, undefined),
             movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27265,17 +27292,29 @@ const MainView = ()=>{
                     }
                 }, movie.id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
                     lineNumber: 80,
+=======
+                    lineNumber: 81,
+>>>>>>> Stashed changes
                     columnNumber: 9
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
         lineNumber: 69,
         columnNumber: 5
     }, undefined);
 };
 _s(MainView, "9wJBvfUyU2IigbyWC+M5y3EH9h4=");
+=======
+        lineNumber: 70,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MainView, "hFDxRpIbGxP6+QKMAcm8hX/Ql7A=");
+>>>>>>> Stashed changes
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27645,8 +27684,13 @@ const LoginView = ({ onLoggedIn })=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
+<<<<<<< Updated upstream
             Email: email,
             Password: password
+=======
+            access: email,
+            secret: password
+>>>>>>> Stashed changes
         };
         fetch("https://film-finder-82ebda24dfc3.herokuapp.com/login", {
             method: "POST",
