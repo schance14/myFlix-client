@@ -1,13 +1,14 @@
-
+import { Button, Card } from "react-bootstrap";
 export const MovieCard = ({ movie, onMovieClick }) => {
-  console.log(movie);
   return (
-    <div
-      onClick={() => {
-        onMovieClick(movie);
-      }}
-    >
-      {movie.title}
-    </div>
+    <Card>
+      <Card.img variant="top" src={movie.image} />
+      <Card.body>
+        <Card.title>{movie.title}</Card.title>
+        <Button onClick={() => onMovieClick(movie)} variant="link">
+          Open
+        </Button>
+      </Card.body>
+    </Card>
   );
 };
