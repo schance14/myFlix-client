@@ -49,7 +49,7 @@ export const MainView = () => {
       ) : selectedMovie ? (
         <Col md={8}>
           <MovieView
-            movie={selectedmovie}
+            movie={selectedMovie}
             onBackClick={() => setSelectedMovie(null)}
           />
         </Col>
