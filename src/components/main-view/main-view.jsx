@@ -5,6 +5,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -28,7 +29,7 @@ export const MainView = () => {
           return {
             id: movie._id,
             title: movie.Title,
-            image: movie.Image,
+            //image: movie.Image,
             description: movie.Description,
             genre: movie.Genre.Name,
             director: movie.Director.Name,
@@ -39,37 +40,38 @@ export const MainView = () => {
   }, [token]);
 
   return (
-    <Row>
-      {!user ? (
-        <Col>
-          <LoginView onLoggedIn={(user) => setUser(user)} />
-          or
-          <SignupView />
-        </Col>
-      ) : selectedMovie ? (
-        <Col md={8}>
-          <MovieView
-            movie={selectedMovie}
-            onBackClick={() => setSelectedMovie(null)}
-          />
-        </Col>
-      ) : movies.length === 0 ? (
-        <div>The list is empty!</div>
-      ) : (
-        <>
-          {movies.map((movie) => (
-            <Col>
-              <MovieCard
-                key={movie.id}
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          ))}
-        </>
-      )}
-    </Row>
+    <Container>
+      <Row>
+        {!user ? (
+          <Col>
+            <LoginView onLoggedIn={(user) => setUser(user)} />
+            or
+            <SignupView />
+          </Col>
+        ) : selectedMovie ? (
+          <Col md={8}>
+            <MovieView
+              movie={selectedMovie}
+              onBackClick={() => setSelectedMovie(null)}
+            />
+          </Col>
+        ) : movies.length === 0 ? (
+          <div>The list is empty!</div>
+        ) : (
+          <>
+            {movies.map((movie) => (
+              <Col key={movie.id}>
+                <MovieCard
+                  movie={movie}
+                  onMovieClick={(newSelectedMovie) => {
+                    setSelectedMovie(newSelectedMovie);
+                  }}
+                />
+              </Col>
+            ))}
+          </>
+        )}
+      </Row>
+    </Container>
   );
 };
