@@ -27337,7 +27337,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     onClick: ()=>onMovieClick(movie),
-                    variant: "link",
+                    variant: "primary",
                     children: "Open"
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
@@ -28456,7 +28456,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionBody":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":false,"./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":false,"./Collapse":false,"./Container":"hEdsw","./Dropdown":false,"./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":"iBZ80","./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":false,"./Navbar":false,"./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":false,"./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":false,"./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":false,"./Toast":false,"./ToastBody":false,"./ToastContainer":false,"./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"lyKga"}],"aPzUt":[function(require,module,exports) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionBody":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":false,"./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":"2L2I6","./Collapse":false,"./Container":"hEdsw","./Dropdown":false,"./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":"iBZ80","./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":false,"./Navbar":false,"./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":false,"./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":false,"./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":false,"./Toast":false,"./ToastBody":false,"./ToastContainer":false,"./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"lyKga"}],"aPzUt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -30646,11 +30646,11 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _movieViewScss = require("./movie-view.scss");
-var _col = require("react-bootstrap/Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
+var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
 const MovieView = ({ movie, onBackClick })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+        md: 12,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -30753,7 +30753,7 @@ const MovieView = ({ movie, onBackClick })=>{
                 lineNumber: 22,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                 onClick: onBackClick,
                 className: "back-button",
                 style: {
@@ -30781,7 +30781,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./movie-view.scss":"jnlR5","react-bootstrap/Col":"2L2I6","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"lyKga","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"i6K8J"}],"jnlR5":[function() {},{}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./movie-view.scss":"jnlR5","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"lyKga","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"i6K8J","react-bootstrap":"3AD9A"}],"jnlR5":[function() {},{}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
