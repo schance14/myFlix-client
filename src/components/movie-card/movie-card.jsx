@@ -7,8 +7,12 @@ export const MovieCard = ({ movie }) => {
     <Card>
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
-        <Link to={`/movies/${encodeURIComponent(movie.id)}`}></Link>
-        <Button variant="primary">Open</Button>
+        <Link
+          to={`/movies/${encodeURIComponent(movie.id)}`}
+          className="mt-auto"
+        >
+          <Button variant="primary">Open</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
@@ -19,5 +23,4 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     //image: PropTypes.string.isRequired,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
