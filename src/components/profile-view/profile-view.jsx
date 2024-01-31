@@ -15,9 +15,8 @@ export const ProfileView = ({
   const [birthday, setBirthday] = useState("");
 
   let favoriteMovies = movies.filter((movie) =>
-    user.favoriteMoviesList.inlcudes(movie.id)
+    user.favoriteMovies.includes(movie._id)
   );
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -41,13 +40,13 @@ export const ProfileView = ({
         if (response.ok) {
           return response.json();
         } else {
-          alert("Changing userdata failed");
+          alert("Updating profile inoformation failed");
           return false;
         }
       })
       .then((user) => {
         if (user) {
-          alert("Successfully changed userdata");
+          alert(" We have successfully updated your profile!");
           updateUser(user);
         }
       })
