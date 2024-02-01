@@ -6,14 +6,13 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useEffect, useState } from "react";
 import "./movie-view.scss";
 
-export const MovieView = ({ movie, user, token, updateUser }) => {
+export const MovieView = ({ movies, user, token, updateUser }) => {
   const { movieId } = useParams();
-  const findMovie = movie.find((m) => m.id === movieId);
-
-  const [setAsFavorite] = useState(user.favoriteMovies.includes(movie.id));
+  const movie = movies.find((m) => m.id === movieId);
+  const [setAsFavorite] = useState(user.FavoriteMovies.includes(movie.id));
 
   useEffect(() => {
-    setAsFavorite(user.favoriteMovies.includes(movie.id));
+    setAsFavorite(user.FavoriteMovies.includes(movie.id));
   }, [movieId]);
 
   const addFavorite = () => {

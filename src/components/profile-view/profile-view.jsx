@@ -15,7 +15,7 @@ export const ProfileView = ({
   const [birthday, setBirthday] = useState("");
 
   let FavoriteMovies = movies.filter((movie) =>
-    user.FavoriteMovies.includes(movie._id)
+    user.FavoriteMovies.includes(movie.id)
   );
   const handleSubmit = (event) => {
     event.preventDefault();

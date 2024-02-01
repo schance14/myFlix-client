@@ -41840,7 +41840,7 @@ const ProfileView = ({ user, token, movies, onLoggedOut, updateUser })=>{
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
-    let FavoriteMovies = movies.filter((movie)=>user.FavoriteMovies.includes(movie._id));
+    let FavoriteMovies = movies.filter((movie)=>user.FavoriteMovies.includes(movie.id));
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
