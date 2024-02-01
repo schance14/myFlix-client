@@ -120,6 +120,7 @@ export const MainView = () => {
                       <MovieView
                         movies={movies}
                         token={token}
+                        user={user}
                         updateUser={updateUser}
                       />
                     </Col>
