@@ -7,19 +7,19 @@ import { useEffect, useState } from "react";
 import "./movie-view.scss";
 
 export const MovieView = ({ movies, user, token, updateUser }) => {
-  const { movieId } = useParams();
-  const movie = movies.find((m) => m.id === movieId);
+  const { movieTitle } = useParams();
+  const movie = movies.find((m) => m.Title === movieTitle);
   const [isFavorite, setAsFavorite] = useState(
-    user.FavoriteMovies.includes(movie.id)
+    user.FavoriteMovies.includes(movie.Title)
   );
 
   useEffect(() => {
-    setAsFavorite(user.FavoriteMovies.includes(movie.id));
-  }, [movieId]);
+    setAsFavorite(user.FavoriteMovies.includes(movie.Title));
+  }, [movieTitle]);
 
   const addFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}/movies/${movieId}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -47,7 +47,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
   const removeFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}/movies/${movieId}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
@@ -111,10 +111,12 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 };
 
 MovieView.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-  }),
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      director: PropTypes.string.isRequired,
+    })
+  ),
 };

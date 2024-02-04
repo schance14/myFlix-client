@@ -8,7 +8,7 @@ export const MovieCard = ({ movie }) => {
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Link
-          to={`/movies/${encodeURIComponent(movie.id)}`}
+          to={`/movies/${encodeURIComponent(movie.title)}`}
           className="mt-auto"
         >
           <Button variant="primary">Open</Button>

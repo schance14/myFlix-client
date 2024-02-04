@@ -15,7 +15,7 @@ export const ProfileView = ({
   const [birthday, setBirthday] = useState("");
 
   let FavoriteMovies = movies.filter((movie) =>
-    user.FavoriteMovies.includes(movie.id)
+    user.FavoriteMovies.includes(movie.Title)
   );
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ export const ProfileView = ({
       name,
       passsword,
       email,
-      birthdate,
+      birthday,
     };
     fetch(
       `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}`,
@@ -159,7 +159,7 @@ export const ProfileView = ({
         <h3>Your Favorite Movies:</h3>
       </Col>
       {FavoriteMovies.map((movie) => (
-        <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
+        <Col className="mb-4" key={movie.Title} xl={2} lg={3} md={4} xs={6}>
           <MovieCard movie={movie} />
         </Col>
       ))}
