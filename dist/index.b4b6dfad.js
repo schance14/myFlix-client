@@ -27338,7 +27338,7 @@ const MainView = ()=>{
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/movies/:movieId",
+                                path: "/movies/:movieTitle",
                                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                                         to: "/login",
@@ -27403,7 +27403,7 @@ const MainView = ()=>{
                                                     lineNumber: 143,
                                                     columnNumber: 27
                                                 }, void 0)
-                                            }, movie.id, false, {
+                                            }, movie.Title, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 142,
                                                 columnNumber: 25
@@ -41179,16 +41179,16 @@ var _movieViewScss = require("./movie-view.scss");
 var _s = $RefreshSig$();
 const MovieView = ({ movies, user, token, updateUser })=>{
     _s();
-    const { movieId } = (0, _reactRouter.useParams)();
-    const movie = movies.find((m)=>m.id === movieId);
-    const [isFavorite, setAsFavorite] = (0, _react.useState)(user.FavoriteMovies.includes(movie.id));
+    const { movieTitle } = (0, _reactRouter.useParams)();
+    const movie = movies.find((m)=>m.Title === movieTitle);
+    const [isFavorite, setAsFavorite] = (0, _react.useState)(user.FavoriteMovies.includes(movie.Title));
     (0, _react.useEffect)(()=>{
-        setAsFavorite(user.FavoriteMovies.includes(movie.id));
+        setAsFavorite(user.FavoriteMovies.includes(movie.Title));
     }, [
-        movieId
+        movieTitle
     ]);
     const addFavorite = ()=>{
-        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}/movies/${movieId}`, {
+        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -41210,7 +41210,7 @@ const MovieView = ({ movies, user, token, updateUser })=>{
         });
     };
     const removeFavorite = ()=>{
-        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}/movies/${movieId}`, {
+        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -41376,19 +41376,19 @@ const MovieView = ({ movies, user, token, updateUser })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MovieView, "jPojnXUKnqqGpKRH5A2r/mHGPc8=", false, function() {
+_s(MovieView, "0aZhenp2aHJvdc3MoQDU5KzjlzY=", false, function() {
     return [
         (0, _reactRouter.useParams)
     ];
 });
 _c = MovieView;
 MovieView.propTypes = {
-    movie: (0, _propTypes.PropTypes).shape({
+    movies: (0, _propTypes.PropTypes).arrayOf((0, _propTypes.PropTypes).shape({
         title: (0, _propTypes.PropTypes).string.isRequired,
         description: (0, _propTypes.PropTypes).string.isRequired,
         genre: (0, _propTypes.PropTypes).string.isRequired,
         director: (0, _propTypes.PropTypes).string.isRequired
-    })
+    }))
 };
 var _c;
 $RefreshReg$(_c, "MovieView");
