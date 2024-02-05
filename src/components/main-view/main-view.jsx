@@ -11,13 +11,13 @@ import Container from "react-bootstrap/Container";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = localStorage.getItem("user");
   const storedToken = localStorage.getItem("token");
-  const [user, setUser] = useState(storedUser ? storedUser : null);
+  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
-  const updateUser = (user) => {
+  const updatedUser = (user) => {
     setUser(user);
     localStorage.setItem("user", JSON.stringify(user));
   };
@@ -64,7 +64,7 @@ export const MainView = () => {
               element={
                 <>
                   {user ? (
-                    <Navigate to="/signup" />
+                    <Navigate to="/" />
                   ) : (
                     <Col md={5}>
                       <SignupView />
@@ -81,7 +81,12 @@ export const MainView = () => {
                     <Navigate to="/" />
                   ) : (
                     <Col md={5}>
-                      <LoginView onLoggedIn={(user) => setUser(user)} />
+                      <LoginView
+                        onLoggedIn={(user, token) => {
+                          setUser(user);
+                          setToken(token);
+                        }}
+                      />
                     </Col>
                   )}
                 </>
@@ -102,13 +107,13 @@ export const MainView = () => {
                       setToken(null);
                       localStorage.clear();
                     }}
-                    updateUser={updateUser}
+                    updatedUser={updatedUser}
                   />
                 )
               }
             />
             <Route
-              path="/movies/:movieTitle"
+              path="/movies/:movieId"
               element={
                 <>
                   {!user ? (
@@ -121,7 +126,7 @@ export const MainView = () => {
                         movies={movies}
                         token={token}
                         user={user}
-                        updateUser={updateUser}
+                        updatedUser={updatedUser}
                       />
                     </Col>
                   )}
@@ -139,7 +144,7 @@ export const MainView = () => {
                   ) : (
                     <>
                       {movies.map((movie) => (
-                        <Col className="mb-4" key={movie.Title} md={3}>
+                        <Col className="mb-4" key={movie.id} md={3}>
                           <MovieCard movie={movie} />
                         </Col>
                       ))}
