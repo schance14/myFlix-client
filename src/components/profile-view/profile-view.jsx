@@ -7,7 +7,7 @@ export const ProfileView = ({
   token,
   movies,
   onLoggedOut,
-  updateUser,
+  updatedUser,
 }) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -21,21 +21,19 @@ export const ProfileView = ({
     event.preventDefault();
     const data = {
       name,
-      passsword,
+      password,
       email,
       birthday,
     };
-    fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    //endpoint to update profile
+    fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -47,7 +45,7 @@ export const ProfileView = ({
       .then((user) => {
         if (user) {
           alert(" We have successfully updated your profile!");
-          updateUser(user);
+          updatedUser(user);
         }
       })
       .catch((e) => {
@@ -56,13 +54,11 @@ export const ProfileView = ({
   };
 
   const deleteAccount = () => {
-    fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Email}`,
-      {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    )
+    //endpoint to delete user account
+    fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((response) => {
         if (response.ok) {
           alert(
@@ -84,9 +80,9 @@ export const ProfileView = ({
         <Card className="mt-2 mb-3">
           <Card.Body>
             <Card.Title>Profile Information</Card.Title>
-            <p>Name: {user.name}</p>
-            <p>Email: {user.email}</p>
-            <p>Birthday: {user.birthday}</p>
+            <p>Name: {user.Name}</p>
+            <p>Email: {user.Email}</p>
+            <p>Birthday: {user.Birthday}</p>
           </Card.Body>
         </Card>
         <Button
@@ -97,7 +93,6 @@ export const ProfileView = ({
             }
           }}
         >
-          {" "}
           Delete Account
         </Button>
       </Col>
@@ -134,7 +129,6 @@ export const ProfileView = ({
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                   className="bg-light"
                 />
               </Form.Group>
@@ -144,7 +138,6 @@ export const ProfileView = ({
                   type="date"
                   value={birthday}
                   onChange={(e) => setBirthday(e.target.value)}
-                  required
                   className="bg-light"
                 />
               </Form.Group>
@@ -159,7 +152,7 @@ export const ProfileView = ({
         <h3>Your Favorite Movies:</h3>
       </Col>
       {FavoriteMovies.map((movie) => (
-        <Col className="mb-4" key={movie.Title} xl={2} lg={3} md={4} xs={6}>
+        <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
           <MovieCard movie={movie} />
         </Col>
       ))}
