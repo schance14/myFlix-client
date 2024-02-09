@@ -6,20 +6,20 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useEffect, useState } from "react";
 import "./movie-view.scss";
 
-export const MovieView = ({ movies, user, token, updatedUser }) => {
+export const MovieView = ({ movies, user, token, updateUser }) => {
   const { MovieTitle } = useParams();
   const movie = movies.find((m) => m.Title === MovieTitle);
   const [isFavorite, setAsFavorite] = useState(
-    user.FavoriteMovies.includes(movie.title)
+    user.FavoriteMovies.includes(movie.Title)
   );
 
   useEffect(() => {
-    setAsFavorite(user.FavoriteMovies.includes(movie.title));
+    setAsFavorite(user.FavoriteMovies.includes(movie.Title));
   }, [MovieTitle]);
 
   const addFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -37,7 +37,7 @@ export const MovieView = ({ movies, user, token, updatedUser }) => {
         if (user) {
           alert("Successfully added to favorites!");
           setAsFavorite(true);
-          updatedUser(user);
+          updateUser(user);
         }
       })
       .catch((e) => {
@@ -47,7 +47,7 @@ export const MovieView = ({ movies, user, token, updatedUser }) => {
 
   const removeFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
@@ -65,7 +65,7 @@ export const MovieView = ({ movies, user, token, updatedUser }) => {
         if (user) {
           alert("Successfully deleted from favorites");
           setAsFavorite(false);
-          updatedUser(user);
+          updateUser(user);
         }
       })
       .catch((e) => {

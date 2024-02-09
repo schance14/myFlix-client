@@ -17,7 +17,7 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
-  const updatedUser = (user) => {
+  const updateUser = (user) => {
     setUser(user);
     localStorage.setItem("user", JSON.stringify(user));
   };
@@ -107,7 +107,7 @@ export const MainView = () => {
                       setToken(null);
                       localStorage.clear();
                     }}
-                    updatedUser={updatedUser}
+                    updateUser={updateUser}
                   />
                 )
               }
@@ -126,7 +126,7 @@ export const MainView = () => {
                         movies={movies}
                         token={token}
                         user={user}
-                        updatedUser={updatedUser}
+                        updateUser={updateUser}
                       />
                     </Col>
                   )}

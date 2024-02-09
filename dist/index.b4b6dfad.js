@@ -27206,7 +27206,7 @@ const MainView = ()=>{
     const [user, setUser] = (0, _react.useState)(storedUser ? JSON.parse(storedUser) : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
-    const updatedUser = (user)=>{
+    const updateUser = (user)=>{
         setUser(user);
         localStorage.setItem("user", JSON.stringify(user));
     };
@@ -27329,7 +27329,7 @@ const MainView = ()=>{
                                         setToken(null);
                                         localStorage.clear();
                                     },
-                                    updatedUser: updatedUser
+                                    updateUser: updateUser
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 101,
@@ -27362,7 +27362,7 @@ const MainView = ()=>{
                                             movies: movies,
                                             token: token,
                                             user: user,
-                                            updatedUser: updatedUser
+                                            updateUser: updateUser
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
                                             lineNumber: 125,
@@ -41180,18 +41180,18 @@ var _movieCard = require("../movie-card/movie-card");
 var _react = require("react");
 var _movieViewScss = require("./movie-view.scss");
 var _s = $RefreshSig$();
-const MovieView = ({ movies, user, token, updatedUser })=>{
+const MovieView = ({ movies, user, token, updateUser })=>{
     _s();
     const { MovieTitle } = (0, _reactRouter.useParams)();
     const movie = movies.find((m)=>m.Title === MovieTitle);
-    const [isFavorite, setAsFavorite] = (0, _react.useState)(user.FavoriteMovies.includes(movie.title));
+    const [isFavorite, setAsFavorite] = (0, _react.useState)(user.FavoriteMovies.includes(movie.Title));
     (0, _react.useEffect)(()=>{
-        setAsFavorite(user.FavoriteMovies.includes(movie.title));
+        setAsFavorite(user.FavoriteMovies.includes(movie.Title));
     }, [
         MovieTitle
     ]);
     const addFavorite = ()=>{
-        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`, {
+        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -41206,14 +41206,14 @@ const MovieView = ({ movies, user, token, updatedUser })=>{
             if (user) {
                 alert("Successfully added to favorites!");
                 setAsFavorite(true);
-                updatedUser(user);
+                updateUser(user);
             }
         }).catch((e)=>{
             alert(e);
         });
     };
     const removeFavorite = ()=>{
-        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`, {
+        fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -41228,7 +41228,7 @@ const MovieView = ({ movies, user, token, updatedUser })=>{
             if (user) {
                 alert("Successfully deleted from favorites");
                 setAsFavorite(false);
-                updatedUser(user);
+                updateUser(user);
             }
         }).catch((e)=>{
             alert(e);
@@ -41379,7 +41379,7 @@ const MovieView = ({ movies, user, token, updatedUser })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MovieView, "FvO2n+20N1NxiMYH5HNE7WVMSM4=", false, function() {
+_s(MovieView, "MqfMtHqr3KK+uwuJfFELi6RtWAU=", false, function() {
     return [
         (0, _reactRouter.useParams)
     ];
@@ -41838,7 +41838,7 @@ var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
-const ProfileView = ({ user, token, movies, onLoggedOut, updatedUser })=>{
+const ProfileView = ({ user, token, movies, onLoggedOut, updateUser })=>{
     _s();
     const [name, setName] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -41870,7 +41870,7 @@ const ProfileView = ({ user, token, movies, onLoggedOut, updatedUser })=>{
         }).then((user)=>{
             if (user) {
                 alert(" We have successfully updated your profile!");
-                updatedUser(user);
+                updateUser(user);
             }
         }).catch((e)=>{
             alert(e);

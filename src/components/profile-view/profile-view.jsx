@@ -7,7 +7,7 @@ export const ProfileView = ({
   token,
   movies,
   onLoggedOut,
-  updatedUser,
+  updateUser,
 }) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +45,7 @@ export const ProfileView = ({
       .then((user) => {
         if (user) {
           alert(" We have successfully updated your profile!");
-          updatedUser(user);
+          updateUser(user);
         }
       })
       .catch((e) => {
