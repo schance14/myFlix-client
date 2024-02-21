@@ -7,23 +7,23 @@ export const ProfileView = ({
   token,
   movies,
   onLoggedOut,
-  updateUser,
+  updatedUser,
 }) => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [Name, setName] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Birthday, setBirthday] = useState("");
 
   let FavoriteMovies = movies.filter((movie) =>
-    user.FavoriteMovies.includes(movie.Title)
+    user.FavoriteMovies.includes(movie.id)
   );
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      name,
-      password,
-      email,
-      birthday,
+      Name,
+      Password,
+      Email,
+      Birthday,
     };
     //endpoint to update profile
     fetch(`https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}`, {
@@ -45,7 +45,7 @@ export const ProfileView = ({
       .then((user) => {
         if (user) {
           alert(" We have successfully updated your profile!");
-          updateUser(user);
+          updatedUser(user);
         }
       })
       .catch((e) => {
@@ -105,7 +105,7 @@ export const ProfileView = ({
                 <Form.Label>Name:</Form.Label>
                 <Form.Control
                   type="text"
-                  value={name}
+                  value={Name}
                   onChange={(e) => setName(e.target.value)}
                   required
                   minLength="3"
@@ -116,7 +116,7 @@ export const ProfileView = ({
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
                   type="password"
-                  value={password}
+                  value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength="4"
@@ -127,7 +127,7 @@ export const ProfileView = ({
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
                   type="email"
-                  value={email}
+                  value={Email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-light"
                 />
@@ -136,7 +136,7 @@ export const ProfileView = ({
                 <Form.Label>Birthday:</Form.Label>
                 <Form.Control
                   type="date"
-                  value={birthday}
+                  value={Birthday}
                   onChange={(e) => setBirthday(e.target.value)}
                   className="bg-light"
                 />

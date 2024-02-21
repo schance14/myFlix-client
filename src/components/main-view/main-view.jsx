@@ -17,7 +17,7 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
-  const updateUser = (user) => {
+  const updatedUser = (user) => {
     setUser(user);
     localStorage.setItem("user", JSON.stringify(user));
   };
@@ -36,7 +36,7 @@ export const MainView = () => {
           return {
             id: movie._id,
             title: movie.Title,
-            //image: movie.Image,
+            image: movie.Image,
             description: movie.Description,
             genre: movie.Genre.Name,
             director: movie.Director.Name,
@@ -107,7 +107,7 @@ export const MainView = () => {
                       setToken(null);
                       localStorage.clear();
                     }}
-                    updateUser={updateUser}
+                    updatedUser={updatedUser}
                   />
                 )
               }
@@ -126,7 +126,7 @@ export const MainView = () => {
                         movies={movies}
                         token={token}
                         user={user}
-                        updateUser={updateUser}
+                        updatedUser={updatedUser}
                       />
                     </Col>
                   )}
