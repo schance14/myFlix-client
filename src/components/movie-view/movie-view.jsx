@@ -19,7 +19,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
   const addFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -47,7 +47,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
   const removeFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.Title}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
@@ -76,7 +76,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
   return (
     <Col md={12}>
       <div>
-        <img src={movie.image} />
+        <img src={movie.imagePath} />
       </div>
       <div>
         <span>Title: </span>
@@ -117,6 +117,7 @@ MovieView.propTypes = {
       description: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       director: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
     })
   ),
 };
