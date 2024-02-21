@@ -27222,7 +27222,7 @@ const MainView = ()=>{
                 return {
                     id: movie._id,
                     title: movie.Title,
-                    image: movie.Image,
+                    // image: movie.Image,
                     description: movie.Description,
                     genre: movie.Genre.Name,
                     director: movie.Director.Name
@@ -27480,7 +27480,7 @@ const MovieCard = ({ movie })=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    to: `/movies/${encodeURIComponent(movie.id)}`,
+                    to: `/movies/${encodeURIComponent(movie.title)}`,
                     className: "mt-auto",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                         variant: "primary",
@@ -41382,8 +41382,7 @@ MovieView.propTypes = {
         title: (0, _propTypes.PropTypes).string.isRequired,
         description: (0, _propTypes.PropTypes).string.isRequired,
         genre: (0, _propTypes.PropTypes).string.isRequired,
-        director: (0, _propTypes.PropTypes).string.isRequired,
-        image: (0, _propTypes.PropTypes).string.isRequired
+        director: (0, _propTypes.PropTypes).string.isRequired
     }))
 };
 var _c;

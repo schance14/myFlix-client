@@ -115,7 +115,7 @@ MovieView.propTypes = {
       description: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       director: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
+      // image: PropTypes.string.isRequired,
     })
   ),
 };
