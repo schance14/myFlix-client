@@ -6,20 +6,20 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useEffect, useState } from "react";
 import "./movie-view.scss";
 
-export const MovieView = ({ movies, user, token, updateUser }) => {
-  const { MovieTitle } = useParams();
-  const movie = movies.find((m) => m.Title === MovieTitle);
+export const MovieView = ({ movies, user, token, updatedUser }) => {
+  const { movieId } = useParams();
+  const movie = movies.find((m) => m.id === movieId);
   const [isFavorite, setAsFavorite] = useState(
-    user.FavoriteMovies.includes(movie.Title)
+    user.FavoriteMovies.includes(movie.id)
   );
 
   useEffect(() => {
-    setAsFavorite(user.FavoriteMovies.includes(movie.Title));
-  }, [MovieTitle]);
+    setAsFavorite(user.FavoriteMovies.includes(movie.id));
+  }, [movieId]);
 
   const addFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.id}`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
@@ -37,7 +37,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
         if (user) {
           alert("Successfully added to favorites!");
           setAsFavorite(true);
-          updateUser(user);
+          updatedUser(user);
         }
       })
       .catch((e) => {
@@ -47,7 +47,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
   const removeFavorite = () => {
     fetch(
-      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.title}`,
+      `https://film-finder-82ebda24dfc3.herokuapp.com/users/${user.Name}/movies/${movie.id}`,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
@@ -65,7 +65,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
         if (user) {
           alert("Successfully deleted from favorites");
           setAsFavorite(false);
-          updateUser(user);
+          updatedUser(user);
         }
       })
       .catch((e) => {
@@ -75,9 +75,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
   return (
     <Col md={12}>
-      <div>
-        <img src={movie.imagePath} />
-      </div>
+      <div>{/* <img src={movie.image} /> */}</div>
       <div>
         <span>Title: </span>
         <span>{movie.title}</span>
