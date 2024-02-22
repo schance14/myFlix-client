@@ -27480,7 +27480,7 @@ const MovieCard = ({ movie })=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    to: `/movies/${encodeURIComponent(movie.title)}`,
+                    to: `/movies/${encodeURIComponent(movie.id)}`,
                     className: "mt-auto",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                         variant: "primary",
