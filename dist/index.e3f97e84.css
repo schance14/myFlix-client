@@ -1,3 +1,25 @@
+Card {
+  margin-bottom: 15px;
+}
+
+Card figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+Card figure Button {
+  margin: auto;
+  display: block;
+}
+
+.img {
+  height: 300px;
+  margin: auto;
+  padding: 20px;
+}
+
 .movie-clicked {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -19,15 +41,6 @@
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-}
-
-.mb-4 figure img {
-  height: 200px;
-  margin: auto;
-}
-
-.Card {
-  margin-bottom: 15px;
 }
 
 :root, [data-bs-theme="light"] {
@@ -13233,4 +13246,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=index.5f1df611.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */

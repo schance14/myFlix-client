@@ -1,10 +1,11 @@
-.movie-clicked {
+.mb-4 {
     margin-bottom: 15px;
+    figure {
         position: relative;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        img {
-            height: 300px;
-        }
+        
+    }
 }
+

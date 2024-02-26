@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Card, Col, Form, Button } from "react-bootstrap";
+import { Card, Col, Row, Form, Button, Figure } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
-
+import "./profile-view.scss";
 export const ProfileView = ({
   user,
   token,
@@ -148,14 +148,23 @@ export const ProfileView = ({
           </Card.Body>
         </Card>
       </Col>
-      <Col md={12}>
-        <h3>Your Favorite Movies:</h3>
-      </Col>
-      {FavoriteMovies.map((movie) => (
-        <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
-          <MovieCard movie={movie} />
-        </Col>
-      ))}
+      <Card>
+        <Card.Body>
+          <Row>
+            <Col md={12}>
+              <h3>Your Favorite Movies:</h3>
+            </Col>
+            {FavoriteMovies.map((movie) => (
+              <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
+                <Figure>
+                  <Figure.Image src={movie.imagepath} />
+                </Figure>
+                <MovieCard movie={movie} />
+              </Col>
+            ))}
+          </Row>
+        </Card.Body>
+      </Card>
     </>
   );
 };
