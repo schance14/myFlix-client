@@ -36,10 +36,10 @@ export const MainView = () => {
           return {
             id: movie._id,
             title: movie.Title,
-            imagePath: movie.ImagePath,
             description: movie.Description,
             genre: movie.Genre.Name,
             director: movie.Director.Name,
+            imagePath: movie.ImagePath,
           };
         });
         setMovies(moviesFromApi);

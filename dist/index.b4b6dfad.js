@@ -27222,10 +27222,10 @@ const MainView = ()=>{
                 return {
                     id: movie._id,
                     title: movie.Title,
-                    imagePath: movie.ImagePath,
                     description: movie.Description,
                     genre: movie.Genre.Name,
-                    director: movie.Director.Name
+                    director: movie.Director.Name,
+                    imagePath: movie.ImagePath
                 };
             });
             setMovies(moviesFromApi);
@@ -27475,7 +27475,7 @@ const MovieCard = ({ movie })=>{
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
-                    src: movie.imagepath,
+                    src: movie.ImagePath,
                     className: "img"
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
@@ -41357,7 +41357,7 @@ const MovieView = ({ movies, user, token, updatedUser })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.imagepath
+                    src: movie.ImagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 79,
@@ -41508,8 +41508,7 @@ MovieView.propTypes = {
         title: (0, _propTypes.PropTypes).string.isRequired,
         description: (0, _propTypes.PropTypes).string.isRequired,
         genre: (0, _propTypes.PropTypes).string.isRequired,
-        director: (0, _propTypes.PropTypes).string.isRequired,
-        imagePath: (0, _propTypes.PropTypes).string.isRequired
+        director: (0, _propTypes.PropTypes).string.isRequired
     }))
 };
 var _c;
@@ -42323,7 +42322,7 @@ const ProfileView = ({ user, token, movies, onLoggedOut, updatedUser })=>{
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Figure), {
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Figure).Image, {
-                                                src: movie.imagepath
+                                                src: movie.ImagePath
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 160,

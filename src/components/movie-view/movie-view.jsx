@@ -76,7 +76,7 @@ export const MovieView = ({ movies, user, token, updatedUser }) => {
   return (
     <Col md={12} className="movie-clicked">
       <div>
-        <img src={movie.imagepath} />
+        <img src={movie.ImagePath} />
       </div>
       <div>
         <span>Title: </span>
@@ -117,7 +117,6 @@ MovieView.propTypes = {
       description: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       director: PropTypes.string.isRequired,
-      imagePath: PropTypes.string.isRequired,
     })
   ),
 };

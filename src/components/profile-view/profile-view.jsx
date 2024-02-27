@@ -157,7 +157,7 @@ export const ProfileView = ({
             {FavoriteMovies.map((movie) => (
               <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
                 <Figure>
-                  <Figure.Image src={movie.imagepath} />
+                  <Figure.Image src={movie.ImagePath} />
                 </Figure>
                 <MovieCard movie={movie} />
               </Col>
