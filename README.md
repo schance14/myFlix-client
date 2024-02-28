@@ -9,7 +9,7 @@ FilmFinder is a responive Javacript application that works in conjunction with a
 ### Main View:
 - Shows a list of movies to a logged in user
 - Allows a user to navigate to different views such as their profile or if they would like to logout
-- Allows a user to search for a movie through the search bar
+- Allows a user to filter through the list of movies in the search bar
 - Allows a user to view an individual movie card
 
 ### Movie View
