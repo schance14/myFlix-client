@@ -7,8 +7,10 @@ import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { InputGroup } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Form } from "react-bootstrap";
 
 export const MainView = () => {
   const storedUser = localStorage.getItem("user");
@@ -16,6 +18,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
   const updatedUser = (user) => {
     setUser(user);
@@ -56,6 +59,14 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
+      <Form>
+        <InputGroup className="my-4">
+          <Form.Control
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search for a movie..."
+          />
+        </InputGroup>
+      </Form>
       <Container>
         <Row className="justify-content-center">
           <Routes>
@@ -143,11 +154,17 @@ export const MainView = () => {
                     <Col>The list is empty!</Col>
                   ) : (
                     <>
-                      {movies.map((movie) => (
-                        <Col className="mb-4" key={movie.id} md={3}>
-                          <MovieCard movie={movie} />
-                        </Col>
-                      ))}
+                      {movies
+                        .filter((movie) => {
+                          return search.toLowerCase() === ""
+                            ? movie
+                            : movie.title.toLowerCase().includes(search);
+                        })
+                        .map((movie) => (
+                          <Col className="mb-4" key={movie.id} md={3}>
+                            <MovieCard movie={movie} />
+                          </Col>
+                        ))}
                     </>
                   )}
                 </>
